@@ -62,13 +62,23 @@ public class ArrayList<T>
         T temp = this.items[index];
         this.ShiftLeft(index);
         this.Count--;
+        if (this.Count <= this.items.Length/4)
+        {
+            this.Shrink();
+        }
         return temp;
     }
-   
+
+    private void Shrink()
+    {
+        T[] destination =new T[this.items.Length / 2];
+        Array.Copy(this.items, destination, this.Count);
+        this.items = destination;
+    }
 
     private void ShiftLeft(int index)
     {
-        for (int i = index; i < this.Count; i++)
+        for (int i = index; i < this.Count-1; i++)
         {
             this.items[i] = this.items[i + 1];
         }
