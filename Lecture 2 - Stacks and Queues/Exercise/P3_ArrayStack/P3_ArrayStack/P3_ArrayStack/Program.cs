@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Problem7__Labyrinth
+namespace P3_ArrayStack
 {
     class Program
     {
